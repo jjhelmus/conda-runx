@@ -8,6 +8,7 @@ requires = [
 [project]
 dependencies = [
   "conda >=24",
+  'tomli >= 1.1.0 ; python_version < "3.11"'
 ]
 description = "Conda plugin for running Python scripts with inline script metadata as defined in PEP 723."
 version = "0.0.1"
