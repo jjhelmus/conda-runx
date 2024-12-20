@@ -1,0 +1,32 @@
+{% set version = "0.0.1" %}
+
+package:
+  name: conda-runx
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  script:
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{version}} python -m pip install . -vv
+  noarch: python
+
+requirements:
+  host:
+    - python >=3.9
+    - pip
+    - hatchling
+    - hatch-vcs
+  run:
+    - python >=3.9
+    - conda >=24
+    - tomli
+    - platformdirs
+
+test:
+  imports:
+    - conda_runx
+
+about:
+  summary: "Conda plugin for running Python scripts with inline script metadata as defined in PEP 723."
