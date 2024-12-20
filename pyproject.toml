@@ -1,0 +1,28 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling >=1.12.2",
+  "hatch-vcs >=0.2.0",
+]
+
+[project]
+dependencies = [
+  "conda >=24",
+]
+description = "Conda plugin for running Python scripts with inline script metadata as defined in PEP 723."
+version = "0.0.1"
+name = "conda-runx"
+requires-python = ">=3.9"
+
+[project.entry-points.conda]
+conda-runx = "conda_runx.plugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/conda_runx"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/conda_runx",
+  "pyproject.toml",
+  "README.md"
+]
